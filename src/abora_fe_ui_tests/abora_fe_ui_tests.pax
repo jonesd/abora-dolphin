@@ -1,0 +1,101 @@
+| package |
+package := Package name: 'abora_fe_ui_tests'.
+package paxVersion: 0;
+	basicComment: ''.
+
+package basicPackageVersion: '0.007'.
+
+
+package classNames
+	add: #AboraFeUiTests;
+	add: #AboraSessionManagerTest;
+	add: #ColorStreamTest;
+	add: #FeAboraSystemTest;
+	add: #FePreferencesTest;
+	add: #FeShellTest;
+	add: #FeTextPresenterTest;
+	add: #LayoutScreenTest;
+	add: #PendingDeleteTest;
+	add: #PendingInsertTest;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\abora\abora';
+	add: '..\abora_fe\abora_fe';
+	add: '..\abora_fe_ui\abora_fe_ui';
+	add: '..\abora_tests\abora_tests';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Base\Dolphin MVP Base';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+AboraTests subclass: #AboraFeUiTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #AboraSessionManagerTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #ColorStreamTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #FeAboraSystemTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #FePreferencesTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #FeShellTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #FeTextPresenterTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #LayoutScreenTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #PendingDeleteTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeUiTests subclass: #PendingInsertTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

@@ -1,0 +1,105 @@
+| package |
+package := Package name: 'abora_fe_tests'.
+package paxVersion: 0;
+	basicComment: 'SUnitTests for Abora FrontEnd.
+
+FrontEnd tests
+SUnitBrowser sunitbShow: AboraFeTests.
+
+All Abora tests
+SUnitBrowser sunitbShow: AboraTests.
+
+
+Copyright (c) 2002 David G Jones
+Released under the MIT X11 license.
+david_jones@night.dircon.co.uk
+http://www.night.dircon.co.uk'.
+
+package basicPackageVersion: '0.028'.
+
+
+package classNames
+	add: #AboraFeTests;
+	add: #ContentCacheTest;
+	add: #FeEditionTest;
+	add: #FeHyperLinkTest;
+	add: #FeIdLookupTest;
+	add: #FeSingleRefTest;
+	add: #FeTextEditionTest;
+	add: #FeWorkTest;
+	add: #MockEventReceiver;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\abora\abora';
+	add: '..\abora_fe\abora_fe';
+	add: '..\abora_tests\abora_tests';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #MockEventReceiver
+	instanceVariableNames: 'actualEvents expectedEvents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraTests subclass: #AboraFeTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #ContentCacheTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeEditionTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeHyperLinkTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeIdLookupTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeSingleRefTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeTextEditionTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraFeTests subclass: #FeWorkTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

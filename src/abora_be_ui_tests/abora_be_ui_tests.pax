@@ -1,0 +1,32 @@
+| package |
+package := Package name: 'abora_be_ui_tests'.
+package paxVersion: 0;
+	basicComment: ''.
+
+package basicPackageVersion: '0.001'.
+
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

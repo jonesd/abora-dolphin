@@ -1,0 +1,74 @@
+| package |
+package := Package name: 'abora_build'.
+package paxVersion: 0;
+	basicComment: 'Abora Build tools for creating a release of the software for others to use
+
+See AboraBuild class comment.
+
+
+Copyright (c) 2002 David G Jones
+Released under the MIT X11 license.
+david_jones@night.dircon.co.uk
+http://www.night.dircon.co.uk'.
+
+package basicPackageVersion: '0.071'.
+
+
+package classNames
+	add: #AboraBuild;
+	add: #AboraImageStripper;
+	add: #BeAboraImageStripper;
+	add: #FeDirectConnection;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\abora\abora';
+	add: '..\abora_fe\abora_fe';
+	add: '..\abora_fe_ui\abora_fe_ui';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Lagoon\Application Deployment Kit';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Lagoon\Lagoon Image Stripper';
+	add: '..\..\..\dolphin2\image.dolphin\sts\Source Tracking System Base';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #AboraBuild
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+FeConnection subclass: #FeDirectConnection
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ImageStripper subclass: #AboraImageStripper
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ImageStripper subclass: #BeAboraImageStripper
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

@@ -1,0 +1,377 @@
+| package |
+package := Package name: 'abora'.
+package paxVersion: 0;
+	basicComment: 'Abora BackEnd package implements the Ent tree, and works/editions that use it.
+
+This is a prototype implementation of a hypertext system inspired
+by Ted Nelsons Xanadu and in particular the Udanax-Gold implementation
+by XOC that was open sourced in 1999.
+
+Abora is coded from scratch using Dolphin Smalltalk.
+
+
+Copyright (c) 2002 David G Jones
+Released under the MIT X11 license.
+david_jones@night.dircon.co.uk
+http://www.night.dircon.co.uk'.
+
+package basicPackageVersion: '0.102'.
+
+
+package classNames
+	add: #AboraError;
+	add: #AboraFileError;
+	add: #AboraLogger;
+	add: #AboraNotAuthorizedError;
+	add: #AboraObject;
+	add: #AboraRegion;
+	add: #AboraRemoteError;
+	add: #AboraSystem;
+	add: #BeClub;
+	add: #BeCollectionHolder;
+	add: #BeConnection;
+	add: #BeContentElement;
+	add: #BeDataHolder;
+	add: #BeEdition;
+	add: #BeNetworkConnection;
+	add: #BeNetworkListener;
+	add: #BeServer;
+	add: #BeSession;
+	add: #BeWork;
+	add: #BranchingNumber;
+	add: #ChildNode;
+	add: #CollectionLeaf;
+	add: #ConnectionTransport;
+	add: #ContentLeaf;
+	add: #Endorsement;
+	add: #EntError;
+	add: #EntNode;
+	add: #FeContentElementProxy;
+	add: #Id;
+	add: #IntegerRegion;
+	add: #LeafNode;
+	add: #LoginAction;
+	add: #RemoteAction;
+	add: #RootNode;
+	add: #SequenceMagnitude;
+	add: #ServerLoop;
+	add: #SplitNode;
+	add: #STBAboraRemoteErrorProxy;
+	add: #STBBeContentElementForBE;
+	add: #STBBeContentElementForFE;
+	add: #StbTransport;
+	add: #SynchronousAction;
+	add: #SystemIds;
+	add: #Thunk;
+	add: #UserHomeAction;
+	add: #WorksStorage;
+	add: #WorksStorageDumper;
+	yourself.
+
+package methodNames
+	add: #Array -> #asAboraText;
+	add: #Number -> #asBranchingNumber;
+	add: #Number -> #asSequenceMagnitude;
+	add: #Number -> #isBeforeOrEqual:;
+	add: #Object -> #isIdentical:;
+	add: #String -> #asAboraContent;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Base\Dolphin MVP Base';
+	add: 'D:\jonesd\naive_xanadu\packages\logger';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Sockets\Sockets Connection';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #AboraLogger
+	instanceVariableNames: ''
+	classVariableNames: 'Connection Persistence Root Security ToDo'
+	poolDictionaries: 'LoggerConstants'
+	classInstanceVariableNames: ''!
+Object subclass: #AboraObject
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #AboraRegion
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #AboraSystem
+	instanceVariableNames: 'versionNumber'
+	classVariableNames: 'Current'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #BeConnection
+	instanceVariableNames: 'session totalCalls transport'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #BeContentElement
+	instanceVariableNames: 'parents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #BeNetworkListener
+	instanceVariableNames: 'port serverSocket acceptanceMonitor connections'
+	classVariableNames: 'Current'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #BeServer
+	instanceVariableNames: 'sessions serverLoop'
+	classVariableNames: 'Current'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #BeSession
+	instanceVariableNames: 'feHash club feContentElements connections'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #ConnectionTransport
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #Endorsement
+	instanceVariableNames: 'endorseeId itemId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #EntNode
+	instanceVariableNames: 'branch'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #Id
+	instanceVariableNames: 'value'
+	classVariableNames: 'NextValue'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #SystemIds
+	instanceVariableNames: ''
+	classVariableNames: 'Cache'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #Thunk
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #WorksStorage
+	instanceVariableNames: 'works idLookup userHome'
+	classVariableNames: 'Current'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraObject subclass: #WorksStorageDumper
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraRegion subclass: #IntegerRegion
+	instanceVariableNames: 'startPosition extent'
+	classVariableNames: 'EmptyRegion'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeConnection subclass: #BeNetworkConnection
+	instanceVariableNames: 'socket serverMonitor'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeContentElement subclass: #BeCollectionHolder
+	instanceVariableNames: 'collection'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeContentElement subclass: #BeDataHolder
+	instanceVariableNames: 'value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeContentElement subclass: #BeEdition
+	instanceVariableNames: 'works root branch nextBranchStep id endorsements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeContentElement subclass: #BeWork
+	instanceVariableNames: 'edition id history revision revisionTime isFrozen endorsements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+BeWork subclass: #BeClub
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ConnectionTransport subclass: #StbTransport
+	instanceVariableNames: 'inFiler outFiler'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+EntNode subclass: #ChildNode
+	instanceVariableNames: 'parents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+EntNode subclass: #RootNode
+	instanceVariableNames: 'child dsp edition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ChildNode subclass: #LeafNode
+	instanceVariableNames: 'startPosition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ChildNode subclass: #SplitNode
+	instanceVariableNames: 'split left right leftDsp rightDsp'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+LeafNode subclass: #CollectionLeaf
+	instanceVariableNames: 'collectionHolder collectionRegion'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+LeafNode subclass: #ContentLeaf
+	instanceVariableNames: 'contentElement'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Thunk subclass: #RemoteAction
+	instanceVariableNames: 'message'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Thunk subclass: #ServerLoop
+	instanceVariableNames: 'actions process'
+	classVariableNames: 'Current ExitCookie'
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Thunk subclass: #SynchronousAction
+	instanceVariableNames: 'action semaphore answer exception'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+RemoteAction subclass: #LoginAction
+	instanceVariableNames: 'feHash clubId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+RemoteAction subclass: #UserHomeAction
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Error subclass: #AboraError
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraError subclass: #AboraFileError
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraError subclass: #AboraNotAuthorizedError
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraError subclass: #AboraRemoteError
+	instanceVariableNames: 'className'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraError subclass: #EntError
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Magnitude subclass: #SequenceMagnitude
+	instanceVariableNames: 'digits'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+SequenceMagnitude subclass: #BranchingNumber
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+STBProxy subclass: #STBAboraRemoteErrorProxy
+	instanceVariableNames: 'className messageText'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+STBProxy subclass: #STBBeContentElementForBE
+	instanceVariableNames: 'id'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+STBProxy subclass: #STBBeContentElementForFE
+	instanceVariableNames: 'id class'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+ProtoObject subclass: #FeContentElementProxy
+	instanceVariableNames: 'id class'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+!Array methodsFor!
+
+asAboraText
+	^self asByteArray asString! !
+!Array categoriesFor: #asAboraText!public!testing! !
+
+!Number methodsFor!
+
+asBranchingNumber
+	^BranchingNumber with: self
+!
+
+asSequenceMagnitude
+	^SequenceMagnitude with: self
+!
+
+isBeforeOrEqual: branchingNumber
+	^self asBranchingNumber isBeforeOrEqual: branchingNumber! !
+!Number categoriesFor: #asBranchingNumber!converting!public! !
+!Number categoriesFor: #asSequenceMagnitude!converting!public! !
+!Number categoriesFor: #isBeforeOrEqual:!converting!public! !
+
+!Object methodsFor!
+
+isIdentical: anObject
+	^self == anObject! !
+!Object categoriesFor: #isIdentical:!OmniBase!public! !
+
+!String methodsFor!
+
+asAboraContent
+	^self asByteArray asArray
+! !
+!String categoriesFor: #asAboraContent!converting!public! !
+
+"End of package definition"!
+

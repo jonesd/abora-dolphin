@@ -1,0 +1,50 @@
+| package |
+package := Package name: 'logger_tests'.
+package paxVersion: 0;
+	basicComment: ''.
+
+package basicPackageVersion: '0.001'.
+
+
+package classNames
+	add: #LoggerTest;
+	add: #MockAppender;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\logger\logger';
+	add: '..\..\..\dolphin2\image.dolphin\Camp Smalltalk\SUnit\SUnit';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #MockAppender
+	instanceVariableNames: 'actualLogItems expectedLogItems'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+TestCase subclass: #LoggerTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: 'LoggerConstants'
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

@@ -1,0 +1,138 @@
+| package |
+package := Package name: 'abora_dev'.
+package paxVersion: 0;
+	basicComment: 'Abora Developer package provides a number of tools for the developer to analyze
+the state of the system.
+
+See EntInspectorShell class comment
+
+
+Copyright (c) 2002 David G Jones
+Released under the MIT X11 license.
+david_jones@night.dircon.co.uk
+http://www.night.dircon.co.uk'.
+
+package basicPackageVersion: '0.034'.
+
+
+package classNames
+	add: #EntInspectorShell;
+	add: #EntStatistics;
+	yourself.
+
+package methodNames
+	add: #BeWork -> #inspectAllRoots;
+	add: #CollectionLeaf -> #printOn:;
+	add: #RootNode -> #inspectNodes;
+	add: #RootNode -> #printOn:;
+	add: #SplitNode -> #printOn:;
+	add: 'CollectionLeaf class' -> #icon;
+	add: 'SplitNode class' -> #icon;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	add: #EntInspectorShell -> 'Default view';
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\abora\abora';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Views\Common Controls\Dolphin Common Controls';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Views\MoenTree\Dolphin MoenTree View';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Base\Dolphin MVP Base';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Models\Tree\Dolphin Tree Models';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Type Converters\Dolphin Type Converters';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #EntStatistics
+	instanceVariableNames: 'root totalCollectionLeafs totalSplitNodes totalContentLeafs maxDepth count contents'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Shell subclass: #EntInspectorShell
+	instanceVariableNames: 'otreePresenter htreePresenter statsPresenter subcontentsPresenter'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+!BeWork methodsFor!
+
+inspectAllRoots
+	"	TreePresenter show: 'Moen tree' on: (VirtualTreeModel new setRoots: (Array with: self ))."
+
+	| roots |
+	roots := (self revisions contents copyWith: self) collect: [:aRevision | aRevision edition root].
+	^EntInspectorShell showOn: (VirtualTreeModel new setRoots: roots)! !
+!BeWork categoriesFor: #inspectAllRoots!public! !
+
+!CollectionLeaf methodsFor!
+
+printOn: aStream
+	| content |
+	aStream nextPutAll: 'Collection(branch='.
+	self branch displayOn: aStream.
+	aStream nextPutAll: ', pos='.
+	self startPosition printOn: aStream.
+	aStream nextPutAll: ', data='.
+	content := [self elements asAboraText] on: Error do: [:exception | self elements].
+	content printOn: aStream.
+	aStream nextPutAll: ')'! !
+!CollectionLeaf categoriesFor: #printOn:!public! !
+
+!CollectionLeaf class methodsFor!
+
+icon
+	^String icon! !
+!CollectionLeaf class categoriesFor: #icon!public! !
+
+!RootNode methodsFor!
+
+inspectNodes
+	^EntInspectorShell showOn: (VirtualTreeModel new setRoots: (Array with: self ))!
+
+printOn: aStream
+	aStream nextPutAll: 'Root(branch='.
+	self branch displayOn: aStream.
+	aStream nextPutAll: ', dsp='.
+	self dsp printOn: aStream.
+	aStream nextPutAll: ')'! !
+!RootNode categoriesFor: #inspectNodes!public! !
+!RootNode categoriesFor: #printOn:!public! !
+
+!SplitNode methodsFor!
+
+printOn: aStream
+	aStream nextPutAll: 'Split(branch='.
+	self branch displayOn: aStream.
+	aStream nextPutAll: ', split='.
+	self split printOn: aStream.
+	aStream nextPutAll: ', dsps='.
+	self leftDsp printOn: aStream.
+	aStream nextPutAll: ','.
+	self rightDsp printOn: aStream.
+	aStream nextPutAll: ')'! !
+!SplitNode categoriesFor: #printOn:!public! !
+
+!SplitNode class methodsFor!
+
+icon
+	^TreeModelAbstract icon! !
+!SplitNode class categoriesFor: #icon!public! !
+
+"End of package definition"!
+

@@ -1,0 +1,172 @@
+| package |
+package := Package name: 'abora_tests'.
+package paxVersion: 0;
+	basicComment: 'SUnitTests for Abora BackEnd.
+
+BackEnd tests
+SUnitBrowser sunitbShow: AboraBeTests.
+
+All Abora tests
+SUnitBrowser sunitbShow: AboraTests.
+
+
+Copyright (c) 2002 David G Jones
+Released under the MIT X11 license.
+david_jones@night.dircon.co.uk
+http://www.night.dircon.co.uk'.
+
+package basicPackageVersion: '0.060'.
+
+
+package classNames
+	add: #AboraBeTests;
+	add: #AboraSystemTest;
+	add: #AboraTests;
+	add: #BeCollectionHolderTest;
+	add: #BeDataHolderTest;
+	add: #BeEditionContentsTest;
+	add: #BeEditionRevisionsTest;
+	add: #BeEditionTest;
+	add: #BeWorkTest;
+	add: #BranchingMagnitudeTest;
+	add: #CollectionLeafTest;
+	add: #ContentLeafTest;
+	add: #EndorsementTest;
+	add: #EntStatisticsTest;
+	add: #IdTest;
+	add: #IntegerRegionTest;
+	add: #RootNodeTest;
+	add: #SequenceMagnitudeTest;
+	add: #SplitNodeTest;
+	add: #WorksStorageDumperTest;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\abora\abora';
+	add: '..\abora_dev\abora_dev';
+	add: '..\abora_fe\abora_fe';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Camp Smalltalk\SUnit\SUnit';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+TestCase subclass: #AboraTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraTests subclass: #AboraBeTests
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #AboraSystemTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeCollectionHolderTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeDataHolderTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeEditionContentsTest
+	instanceVariableNames: 'edition'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeEditionRevisionsTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeEditionTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BeWorkTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #BranchingMagnitudeTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #CollectionLeafTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #ContentLeafTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #EndorsementTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #EntStatisticsTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #IdTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #IntegerRegionTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #RootNodeTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #SequenceMagnitudeTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #SplitNodeTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+AboraBeTests subclass: #WorksStorageDumperTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+

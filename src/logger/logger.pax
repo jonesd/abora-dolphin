@@ -1,0 +1,65 @@
+| package |
+package := Package name: 'logger'.
+package paxVersion: 0;
+	basicComment: ''.
+
+package basicPackageVersion: '0.009'.
+
+
+package classNames
+	add: #Logger;
+	add: #LoggerLevel;
+	add: #LoggerPresenter;
+	add: #TranscriptAppender;
+	yourself.
+
+package globalNames
+	add: #LoggerConstants;
+	yourself.
+
+package binaryGlobalNames: (Set new
+	yourself).
+
+package globalAliases: (Set new
+	yourself).
+
+package allResourceNames: (Set new
+	yourself).
+
+package setPrerequisites: (IdentitySet new
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\Base\Dolphin';
+	add: '..\..\..\dolphin2\image.dolphin\Object Arts\Dolphin\MVP\Base\Dolphin MVP Base';
+	yourself).
+
+package!
+
+"Class Definitions"!
+
+Object subclass: #Logger
+	instanceVariableNames: 'name minimumLevel appenders parent children effectiveMinimumLevel effectiveAppenders'
+	classVariableNames: ''
+	poolDictionaries: 'LoggerConstants'
+	classInstanceVariableNames: ''!
+Object subclass: #LoggerLevel
+	instanceVariableNames: 'name value'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Object subclass: #TranscriptAppender
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Presenter subclass: #LoggerPresenter
+	instanceVariableNames: 'outputWindow buffer bufferProtect'
+	classVariableNames: 'LevelFormatting Prologue'
+	poolDictionaries: 'LoggerConstants'
+	classInstanceVariableNames: ''!
+
+"Global Aliases"!
+
+
+"Loose Methods"!
+
+"End of package definition"!
+
