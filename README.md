@@ -20,7 +20,7 @@ An executable for Windows is present under `build_resources/AboraGUIToGo.exe`.
 
 david@dgjones.info
 
-https://github.com/jonesd/abora-ash
+https://github.com/jonesd/abora-dolphin
 
 
 ## Copyright and licence
